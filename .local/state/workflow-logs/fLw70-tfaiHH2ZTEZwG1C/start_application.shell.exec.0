@@ -1,0 +1,44 @@
+[2K[1G[1myarn run v1.22.22[22m
+[2K[1G[33mwarning[39m package.json: No license field
+[2K[1G[2m$ ts-node src/Bot.ts[22m
+Migration: rebuilt queue_message table with guild_id schema
+Bot is starting...
+Azero's Vouch Bot is online and ready !
+/home/runner/workspace/node_modules/@discordjs/rest/src/lib/handlers/Shared.ts:148
+			throw new DiscordAPIError(data, 'code' in data ? data.code : data.error, status, method, url, requestData);
+         ^
+DiscordAPIError[50013]: Missing Permissions
+    at handleErrors [90m(/home/runner/workspace/[39mnode_modules/[4m@discordjs/rest[24m/src/lib/handlers/Shared.ts:148:10[90m)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:103:5)[39m
+    at async SequentialHandler.runRequest [90m(/home/runner/workspace/[39mnode_modules/[4m@discordjs/rest[24m/src/lib/handlers/SequentialHandler.ts:410:20[90m)[39m
+    at async SequentialHandler.queueRequest [90m(/home/runner/workspace/[39mnode_modules/[4m@discordjs/rest[24m/src/lib/handlers/SequentialHandler.ts:168:11[90m)[39m
+    at async _REST.request [90m(/home/runner/workspace/[39mnode_modules/[4m@discordjs/rest[24m/src/lib/REST.ts:211:20[90m)[39m
+    at async TextChannel.send [90m(/home/runner/workspace/[39mnode_modules/[4mdiscord.js[24m/src/structures/interfaces/TextBasedChannel.js:155:15[90m)[39m
+    at async updateQueueEmbed [90m(/home/runner/workspace/[39msrc/queue/queueEmbed.ts:94:18[90m)[39m
+    at async Object.run [90m(/home/runner/workspace/[39msrc/commands/QueueStart.ts:40:21[90m)[39m {
+  requestBody: {
+    files: [],
+    json: {
+      content: [90mundefined[39m,
+      tts: [33mfalse[39m,
+      nonce: [90mundefined[39m,
+      embeds: [36m[Array][39m,
+      components: [90mundefined[39m,
+      username: [90mundefined[39m,
+      avatar_url: [90mundefined[39m,
+      allowed_mentions: [90mundefined[39m,
+      flags: [90mundefined[39m,
+      message_reference: [90mundefined[39m,
+      attachments: [90mundefined[39m,
+      sticker_ids: [90mundefined[39m,
+      thread_name: [90mundefined[39m
+    }
+  },
+  rawError: { message: [32m'Missing Permissions'[39m, code: [33m50013[39m },
+  code: [33m50013[39m,
+  status: [33m403[39m,
+  method: [32m'POST'[39m,
+  url: [32m'https://discord.com/api/v10/channels/1523773021976924361/messages'[39m
+}
+[2K[1G[31merror[39m Command failed with exit code 1.
+[2K[1G[34minfo[39m Visit [1mhttps://yarnpkg.com/en/docs/cli/run[22m for documentation about this command.

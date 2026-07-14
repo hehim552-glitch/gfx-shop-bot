@@ -1,0 +1,8 @@
+[2K[1G[1myarn run v1.22.22[22m
+[2K[1G[33mwarning[39m package.json: No license field
+[2K[1G[2m$ ts-node src/Bot.ts[22m
+Bot is starting...
+Azero's Vouch Bot is online and ready !
+[Status] Failed to send status embed: Missing Permissions
+[Queue] Could not DM user 1523759172632445070 — DMs may be disabled.
+[Queue] Could not DM user 1523759172632445070 — DMs may be disabled.

@@ -1,0 +1,180 @@
+[2K[1G[1myarn run v1.22.22[22m
+[2K[1G[33mwarning[39m package.json: No license field
+[2K[1G[2m$ ts-node src/Bot.ts[22m
+/home/runner/workspace/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+[96msrc/commands/Earnings.ts[0m:[93m71[0m:[93m11[0m - [91merror[0m[90m TS2451: [0mCannot redeclare block-scoped variable 'embed'.
+
+[7m71[0m     const embed = new EmbedBuilder()
+[7m  [0m [91m          ~~~~~[0m
+[96msrc/commands/Earnings.ts[0m:[93m77[0m:[93m25[0m - [91merror[0m[90m TS2304: [0mCannot find name 'total'.
+
+[7m77[0m           value: `## $${total.toFixed(2)}`,
+[7m  [0m [91m                        ~~~~~[0m
+[96msrc/commands/Earnings.ts[0m:[93m82[0m:[93m21[0m - [91merror[0m[90m TS2304: [0mCannot find name 'transactionCount'.
+
+[7m82[0m           value: `${transactionCount} payment${transactionCount !== 1 ? 's' : ''}`,
+[7m  [0m [91m                    ~~~~~~~~~~~~~~~~[0m
+[96msrc/commands/Earnings.ts[0m:[93m82[0m:[93m48[0m - [91merror[0m[90m TS2304: [0mCannot find name 'transactionCount'.
+
+[7m82[0m           value: `${transactionCount} payment${transactionCount !== 1 ? 's' : ''}`,
+[7m  [0m [91m                                               ~~~~~~~~~~~~~~~~[0m
+[96msrc/commands/Earnings.ts[0m:[93m87[0m:[93m18[0m - [91merror[0m[90m TS2304: [0mCannot find name 'transactionCount'.
+
+[7m87[0m           value: transactionCount > 0 ? `$${(total / transactionCount).toFixed(2)}` : '$0.00',
+[7m  [0m [91m                 ~~~~~~~~~~~~~~~~[0m
+[96msrc/commands/Earnings.ts[0m:[93m87[0m:[93m46[0m - [91merror[0m[90m TS2304: [0mCannot find name 'total'.
+
+[7m87[0m           value: transactionCount > 0 ? `$${(total / transactionCount).toFixed(2)}` : '$0.00',
+[7m  [0m [91m                                             ~~~~~[0m
+[96msrc/commands/Earnings.ts[0m:[93m87[0m:[93m54[0m - [91merror[0m[90m TS2304: [0mCannot find name 'transactionCount'.
+
+[7m87[0m           value: transactionCount > 0 ? `$${(total / transactionCount).toFixed(2)}` : '$0.00',
+[7m  [0m [91m                                                     ~~~~~~~~~~~~~~~~[0m
+[96msrc/commands/Earnings.ts[0m:[93m97[0m:[93m18[0m - [91merror[0m[90m TS2448: [0mBlock-scoped variable 'methodLines' used before its declaration.
+
+[7m97[0m           value: methodLines,
+[7m  [0m [91m                 ~~~~~~~~~~~[0m
+
+  [96msrc/commands/Earnings.ts[0m:[93m112[0m:[93m11[0m
+    [7m112[0m     const methodLines =
+    [7m   [0m [96m          ~~~~~~~~~~~[0m
+    'methodLines' is declared here.
+[96msrc/commands/Earnings.ts[0m:[93m104[0m:[93m11[0m - [91merror[0m[90m TS2304: [0mCannot find name 'interaction'.
+
+[7m104[0m     await interaction.followUp({ embeds: [embed], ephemeral: true });
+[7m   [0m [91m          ~~~~~~~~~~~[0m
+[96msrc/commands/Earnings.ts[0m:[93m113[0m:[93m7[0m - [91merror[0m[90m TS2304: [0mCannot find name 'byMethod'.
+
+[7m113[0m       byMethod.length > 0
+[7m   [0m [91m      ~~~~~~~~[0m
+[96msrc/commands/Earnings.ts[0m:[93m114[0m:[93m11[0m - [91merror[0m[90m TS2304: [0mCannot find name 'byMethod'.
+
+[7m114[0m         ? byMethod
+[7m   [0m [91m          ~~~~~~~~[0m
+[96msrc/commands/Earnings.ts[0m:[93m115[0m:[93m21[0m - [91merror[0m[90m TS7031: [0mBinding element 'method' implicitly has an 'any' type.
+
+[7m115[0m             .map(({ method, total: t, count }) => {
+[7m   [0m [91m                    ~~~~~~[0m
+[96msrc/commands/Earnings.ts[0m:[93m115[0m:[93m36[0m - [91merror[0m[90m TS7031: [0mBinding element 't' implicitly has an 'any' type.
+
+[7m115[0m             .map(({ method, total: t, count }) => {
+[7m   [0m [91m                                   ~[0m
+[96msrc/commands/Earnings.ts[0m:[93m115[0m:[93m39[0m - [91merror[0m[90m TS7031: [0mBinding element 'count' implicitly has an 'any' type.
+
+[7m115[0m             .map(({ method, total: t, count }) => {
+[7m   [0m [91m                                      ~~~~~[0m
+[96msrc/commands/Earnings.ts[0m:[93m116[0m:[93m29[0m - [91merror[0m[90m TS2304: [0mCannot find name 'methodEmoji'.
+
+[7m116[0m               const emoji = methodEmoji[method] ?? '💳';
+[7m   [0m [91m                            ~~~~~~~~~~~[0m
+[96msrc/commands/Earnings.ts[0m:[93m117[0m:[93m27[0m - [91merror[0m[90m TS2304: [0mCannot find name 'currencySymbol'.
+
+[7m117[0m               const sym = currencySymbol(method);
+[7m   [0m [91m                          ~~~~~~~~~~~~~~[0m
+[96msrc/commands/Earnings.ts[0m:[93m118[0m:[93m27[0m - [91merror[0m[90m TS2304: [0mCannot find name 'total'.
+
+[7m118[0m               const pct = total > 0 ? ((t / total) * 100).toFixed(1) : '0.0';
+[7m   [0m [91m                          ~~~~~[0m
+[96msrc/commands/Earnings.ts[0m:[93m118[0m:[93m45[0m - [91merror[0m[90m TS2304: [0mCannot find name 'total'.
+
+[7m118[0m               const pct = total > 0 ? ((t / total) * 100).toFixed(1) : '0.0';
+[7m   [0m [91m                                            ~~~~~[0m
+[96msrc/commands/Earnings.ts[0m:[93m124[0m:[93m11[0m - [91merror[0m[90m TS2451: [0mCannot redeclare block-scoped variable 'embed'.
+
+[7m124[0m     const embed = new EmbedBuilder()
+[7m   [0m [91m          ~~~~~[0m
+[96msrc/commands/Earnings.ts[0m:[93m130[0m:[93m25[0m - [91merror[0m[90m TS2304: [0mCannot find name 'total'.
+
+[7m130[0m           value: `## $${total.toFixed(2)}`,
+[7m   [0m [91m                        ~~~~~[0m
+[96msrc/commands/Earnings.ts[0m:[93m135[0m:[93m21[0m - [91merror[0m[90m TS2304: [0mCannot find name 'transactionCount'.
+
+[7m135[0m           value: `${transactionCount} payment${transactionCount !== 1 ? 's' : ''}`,
+[7m   [0m [91m                    ~~~~~~~~~~~~~~~~[0m
+[96msrc/commands/Earnings.ts[0m:[93m135[0m:[93m48[0m - [91merror[0m[90m TS2304: [0mCannot find name 'transactionCount'.
+
+[7m135[0m           value: `${transactionCount} payment${transactionCount !== 1 ? 's' : ''}`,
+[7m   [0m [91m                                               ~~~~~~~~~~~~~~~~[0m
+[96msrc/commands/Earnings.ts[0m:[93m140[0m:[93m18[0m - [91merror[0m[90m TS2304: [0mCannot find name 'transactionCount'.
+
+[7m140[0m           value: transactionCount > 0 ? `$${(total / transactionCount).toFixed(2)}` : '$0.00',
+[7m   [0m [91m                 ~~~~~~~~~~~~~~~~[0m
+[96msrc/commands/Earnings.ts[0m:[93m140[0m:[93m46[0m - [91merror[0m[90m TS2304: [0mCannot find name 'total'.
+
+[7m140[0m           value: transactionCount > 0 ? `$${(total / transactionCount).toFixed(2)}` : '$0.00',
+[7m   [0m [91m                                             ~~~~~[0m
+[96msrc/commands/Earnings.ts[0m:[93m140[0m:[93m54[0m - [91merror[0m[90m TS2304: [0mCannot find name 'transactionCount'.
+
+[7m140[0m           value: transactionCount > 0 ? `$${(total / transactionCount).toFixed(2)}` : '$0.00',
+[7m   [0m [91m                                                     ~~~~~~~~~~~~~~~~[0m
+[96msrc/commands/Earnings.ts[0m:[93m157[0m:[93m11[0m - [91merror[0m[90m TS2304: [0mCannot find name 'interaction'.
+
+[7m157[0m     await interaction.followUp({ embeds: [embed], ephemeral: true });
+[7m   [0m [91m          ~~~~~~~~~~~[0m
+[96msrc/commands/Earnings.ts[0m:[93m31[0m:[93m71[0m - [91merror[0m[90m TS1002: [0mUnterminated string literal.
+
+[7m31[0m     const currencySymbol = (method: string) => method === 'Robux' ? 'R
+[7m  [0m [91m                                                                      [0m
+[96msrc/commands/Earnings.ts[0m:[93m33[0m:[93m5[0m - [91merror[0m[90m TS1005: [0m':' expected.
+
+[7m33[0m     const embed = new EmbedBuilder()
+[7m  [0m [91m    ~~~~~[0m
+[96msrc/commands/Earnings.ts[0m:[93m69[0m:[93m2[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m69[0m  : '
+[7m  [0m [91m ~[0m
+[96msrc/commands/Earnings.ts[0m:[93m69[0m:[93m5[0m - [91merror[0m[90m TS1002: [0mUnterminated string literal.
+
+[7m69[0m  : '
+[7m  [0m [91m    [0m
+[96msrc/commands/Earnings.ts[0m:[93m105[0m:[93m3[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m105[0m   },
+[7m   [0m [91m  ~[0m
+[96msrc/commands/Earnings.ts[0m:[93m105[0m:[93m4[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m105[0m   },
+[7m   [0m [91m   ~[0m
+[96msrc/commands/Earnings.ts[0m:[93m106[0m:[93m1[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m106[0m };
+[7m   [0m [91m~[0m
+[96msrc/commands/Earnings.ts[0m:[93m158[0m:[93m3[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m158[0m   },
+[7m   [0m [91m  ~[0m
+[96msrc/commands/Earnings.ts[0m:[93m158[0m:[93m4[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m158[0m   },
+[7m   [0m [91m   ~[0m
+[96msrc/commands/Earnings.ts[0m:[93m159[0m:[93m1[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m159[0m };
+[7m   [0m [91m~[0m
+
+    at createTSError [90m(/home/runner/workspace/[39mnode_modules/[4mts-node[24m/src/index.ts:859:12[90m)[39m
+    at reportTSError [90m(/home/runner/workspace/[39mnode_modules/[4mts-node[24m/src/index.ts:863:19[90m)[39m
+    at getOutput [90m(/home/runner/workspace/[39mnode_modules/[4mts-node[24m/src/index.ts:1077:36[90m)[39m
+    at Object.compile [90m(/home/runner/workspace/[39mnode_modules/[4mts-node[24m/src/index.ts:1433:41[90m)[39m
+    at Module.m._compile [90m(/home/runner/workspace/[39mnode_modules/[4mts-node[24m/src/index.ts:1617:30[90m)[39m
+[90m    at node:internal/modules/cjs/loader:1893:10[39m
+    at Object.require.extensions.<computed> [as .ts] [90m(/home/runner/workspace/[39mnode_modules/[4mts-node[24m/src/index.ts:1621:12[90m)[39m
+[90m    at Module.load (node:internal/modules/cjs/loader:1481:32)[39m
+[90m    at Module._load (node:internal/modules/cjs/loader:1300:12)[39m
+[90m    at TracingChannel.traceSync (node:diagnostics_channel:328:14)[39m {
+  diagnosticCodes: [
+    [33m2451[39m, [33m2304[39m, [33m2304[39m, [33m2304[39m, [33m2304[39m,
+    [33m2304[39m, [33m2304[39m, [33m2448[39m, [33m2304[39m, [33m2304[39m,
+    [33m2304[39m, [33m7031[39m, [33m7031[39m, [33m7031[39m, [33m2304[39m,
+    [33m2304[39m, [33m2304[39m, [33m2304[39m, [33m2451[39m, [33m2304[39m,
+    [33m2304[39m, [33m2304[39m, [33m2304[39m, [33m2304[39m, [33m2304[39m,
+    [33m2304[39m, [33m1002[39m, [33m1005[39m, [33m1128[39m, [33m1002[39m,
+    [33m1128[39m, [33m1128[39m, [33m1128[39m, [33m1128[39m, [33m1128[39m,
+    [33m1128[39m
+  ]
+}
+[2K[1G[31merror[39m Command failed with exit code 1.
+[2K[1G[34minfo[39m Visit [1mhttps://yarnpkg.com/en/docs/cli/run[22m for documentation about this command.

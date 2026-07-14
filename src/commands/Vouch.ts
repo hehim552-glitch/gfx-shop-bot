@@ -1,0 +1,83 @@
+import {
+  CommandInteraction,
+  Client,
+  ApplicationCommandOptionType,
+  EmbedBuilder,
+  TextChannel,
+} from 'discord.js';
+import { Command } from '../Command';
+import addVouch from '../database/addVouch';
+
+export const Vouch: Command = {
+  name: 'vouch',
+  description: 'Give a vouch with a message and rating (1-5)',
+  options: [
+    {
+      name: 'message',
+      description: 'Message for the vouch',
+      type: ApplicationCommandOptionType.String,
+      required: true,
+      min_length: 5,
+    },
+    {
+      name: 'rating',
+      description: 'Rating 1 - 5',
+      type: ApplicationCommandOptionType.Number,
+      required: true,
+      min_value: 1,
+      max_value: 5,
+    },
+    {
+      name: 'payment',
+      description: 'Payment method used',
+      type: ApplicationCommandOptionType.String,
+      required: true,
+      choices: [
+        { name: 'Robux', value: 'Robux' },
+        { name: 'PayPal (USD)', value: 'PayPal (USD)' },
+      ],
+    },
+  ],
+  run: async (client: Client, interaction: CommandInteraction) => {
+    if (!interaction.isChatInputCommand() || !(interaction.channel instanceof TextChannel)) return;
+
+    if (interaction.channel.name !== process.env?.VOUCH_CHANNEL_NAME ?? 'vouches') {
+      await interaction.followUp({
+        ephemeral: true,
+        content: 'You can only use this command in #vouches channel',
+      });
+      return;
+    }
+
+    const message = interaction.options.getString('message');
+    const rating = interaction.options.getNumber('rating');
+    const payment = interaction.options.getString('payment');
+
+    const embed = new EmbedBuilder()
+      .setColor(interaction.user.hexAccentColor ?? '#0099ff')
+      .setThumbnail(interaction.user.displayAvatarURL({ forceStatic: false }))
+      .addFields({
+        name: 'Vouch Submitted!',
+        value: '⭐'.repeat(rating ?? 0),
+      })
+      .addFields({
+        name: 'Message',
+        value: message ?? 'No message provided',
+      })
+      .addFields({
+        name: 'Payment Method',
+        value: payment ?? 'Unknown',
+      })
+      .addFields({
+        name: 'Vouch by:',
+        value: `${interaction.user}`,
+      })
+      .setTimestamp(new Date())
+      .setFooter({ text: '🚀 Only use if you have purchased.' });
+
+    interaction.followUp({ embeds: [embed] });
+
+    // Save into database
+    addVouch(interaction.user.id, message ?? 'No message left', rating ?? 0, payment ?? 'Unknown')
+  },
+};
