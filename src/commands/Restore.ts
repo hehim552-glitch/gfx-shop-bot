@@ -21,7 +21,7 @@ export const Restore: Command = {
       return;
     }
 
-    if (interaction.channel.name !== process.env?.VOUCH_CHANNEL_NAME ?? 'vouches') {
+    if (interaction.channel.name !== (process.env?.VOUCH_CHANNEL_NAME ?? 'vouches')) {
       await interaction.followUp({
         ephemeral: true,
         content: 'You can only use this command in #vouches channel',
